@@ -75,6 +75,10 @@ a {
   font-weight: 600;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 ul {
   list-style: none;
 }
@@ -172,6 +176,10 @@ nav {
   border-bottom: 2px solid transparent;
 }
 
+.nav-list li a:hover {
+  text-decoration: none;
+}
+
 .nav-list li:hover {
   border-bottom: 2px solid var(--text-white);
 }
@@ -259,10 +267,6 @@ nav {
   display: flex;
   gap: 16px;
   font-size: 0.7rem;
-}
-
-.contact-info a:hover {
-  text-decoration: underline;
 }
 
 .contact-form-wrapper {
