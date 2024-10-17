@@ -1,8 +1,15 @@
+// Current Year
+const yearText = document.getElementById("year");
+const date = new Date();
+let year = date.getFullYear();
+yearText.innerText = year;
+
+// Display Projects and Testimonial Cards
 const projectsWrapper = document.getElementById("projects-wrapper");
 const testimonialsWrapper = document.getElementById("testimonials-wrapper");
 
 function displayItems(data) {
-  // Display Projects
+  // Projects
   data.projects.map((project) => {
     const projectCard = document.createElement("div");
     projectCard.classList.add("project-card");
@@ -30,7 +37,7 @@ function displayItems(data) {
     projectsWrapper.appendChild(projectCard);
   });
 
-  // Display Testimonials
+  // Testimonials
   data.testimonials.map((testimonial) => {
     const testimonialCard = document.createElement("div");
     testimonialCard.classList.add("testimonial-card");
