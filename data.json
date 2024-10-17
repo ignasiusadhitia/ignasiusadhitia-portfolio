@@ -26,8 +26,8 @@
     },
     {
       "id": 4,
-      "title": "Project 4",
-      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, dolorum.",
+      "title": "Task Management App",
+      "desc": "Designed a full-stack task management application with real-time notifications and collaborative features. Built using Laravel for the backend and Vue.js for the frontend, ensuring a smooth and dynamic user experience.",
       "img": "/assets/images/project-4.jpg",
       "demoUrl": "#",
       "githubUrl": "#"
@@ -39,7 +39,7 @@
       "name": "Sarah W.",
       "title": "Project Manager",
       "img": "/assets/images/testimonial-1.jpg",
-      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, dolorum."
+      "desc": "Ignasius is a developer who truly cares about the details. His work has consistently elevated our projects, delivering results on time and exceeding expectations."
     },
     {
       "id": 2,
