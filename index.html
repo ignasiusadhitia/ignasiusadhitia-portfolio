@@ -8,29 +8,8 @@
   </head>
   <body>
     <div class="container">
-      <!-- Navigation -->
-      <nav class="bg-dark-transparent rounded">
-        <ul class="nav-list">
-          <li>
-            <a href="/" class="text-white">Home</a>
-          </li>
-          <li>
-            <a href="#about" class="text-white">About</a>
-          </li>
-          <li>
-            <a href="#projects" class="text-white">Projects</a>
-          </li>
-          <li>
-            <a href="#testimonials" class="text-white">Testimonials</a>
-          </li>
-          <li>
-            <a href="#contact" class="text-white">Contact</a>
-          </li>
-        </ul>
-      </nav>
-
       <!-- Hero Section -->
-      <header class="section-wrapper">
+      <header class="section-wrapper" id="hero-section">
         <div class="inner-container flex-center align-items-center text-center">
           <div class="profile-image-wrapper">
             <img
@@ -87,96 +66,8 @@
             <h3>A Selection of my recent projects.</h3>
           </div>
 
-          <div class="grid">
-            <div class="card">
-              <div class="card-header">
-                <img
-                  src="assets/images/project-1.png"
-                  alt="project-img"
-                  class="card-image"
-                />
-              </div>
-
-              <div class="card-body">
-                <h4>Project 1</h4>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Eveniet pariatur eius doloribus?
-                </p>
-                <div class="card-footer">
-                  <a href="#">Demo</a>
-                  <a href="#">Github</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                <img
-                  src="assets/images/project-2.png"
-                  alt="project-img"
-                  class="card-image"
-                />
-              </div>
-
-              <div class="card-body">
-                <h4>Project 2</h4>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Eveniet pariatur eius doloribus?
-                </p>
-                <div class="card-footer">
-                  <a href="#">Demo</a>
-                  <a href="#">Github</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="grid">
-            <div class="card">
-              <div class="card-header">
-                <img
-                  src="assets/images/project-3.jpg"
-                  alt="project-img"
-                  class="card-image"
-                />
-              </div>
-
-              <div class="card-body">
-                <h4>Project 3</h4>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Eveniet pariatur eius doloribus?
-                </p>
-                <div class="card-footer">
-                  <a href="#">Demo</a>
-                  <a href="#">Github</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                <img
-                  src="assets/images/project-4.jpg"
-                  alt="project-img"
-                  class="card-image"
-                />
-              </div>
-
-              <div class="card-body">
-                <h4>Project 4</h4>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Eveniet pariatur eius doloribus?
-                </p>
-                <div class="card-footer">
-                  <a href="#">Demo</a>
-                  <a href="#">Github</a>
-                </div>
-              </div>
-            </div>
+          <div class="grid" id="projects-wrapper">
+            <!-- Project Cards -->
           </div>
         </section>
 
@@ -187,71 +78,8 @@
             <h3>Words from those I've worked with.</h3>
           </div>
 
-          <div class="testimonials">
-            <div class="testimonial-card">
-              <div class="testimonial-card-header">
-                <img
-                  src="assets/images/testimonial-1.jpg"
-                  alt="client-image"
-                  class="testimonial-card-header-img"
-                />
-                <div class="testimonial-card-header-info">
-                  <h4>Sarah W.</h4>
-                  <small>Project Manager</small>
-                </div>
-              </div>
-              <p>
-                <em>
-                  "Ignasius is a developer who truly cares about the details.
-                  His work has consistently elevated our projects, delivering
-                  results on time and exceeding expectations."
-                </em>
-              </p>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-card-header">
-                <img
-                  src="assets/images/testimonial-2.jpg"
-                  alt="client-image"
-                  class="testimonial-card-header-img"
-                />
-                <div class="testimonial-card-header-info">
-                  <h4>Michael T.</h4>
-                  <small>CTO</small>
-                </div>
-              </div>
-              <p>
-                <em>
-                  "Collaborating with Ignasius was a great experience. He
-                  brought fresh ideas to the table and solved challenges with
-                  ease. His ability to understand project requirements and
-                  deliver on them was outstanding."
-                </em>
-              </p>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-card-header">
-                <img
-                  src="assets/images/testimonial-3.jpg"
-                  alt="client-image"
-                  class="testimonial-card-header-img"
-                />
-                <div class="testimonial-card-header-info">
-                  <h4>Laura P.</h4>
-                  <small>Designer</small>
-                </div>
-              </div>
-              <p>
-                <em>
-                  "Ignasius’s front-end skills are top-notch. We worked together
-                  on multiple projects, and his attention to detail, especially
-                  in UI/UX, ensured that our designs were beautifully
-                  implemented."
-                </em>
-              </p>
-            </div>
+          <div class="testimonials" id="testimonials-wrapper">
+            <!-- Testimonial Cards -->
           </div>
         </section>
 
@@ -291,5 +119,39 @@
         <p>Let's build something great together.</p>
       </footer>
     </div>
+
+    <!-- Navigation -->
+
+    <nav class="bg-dark-transparent rounded">
+      <ul class="nav-list">
+        <li>
+          <a href="/" class="text-white">
+            <i class="bi bi-house-door-fill"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#about" class="text-white">
+            <i class="bi bi-person-fill"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#projects" class="text-white">
+            <i class="bi bi-kanban-fill"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#testimonials" class="text-white">
+            <i class="bi bi-chat-fill"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="text-white">
+            <i class="bi bi-envelope-fill"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <script src="main.js"></script>
   </body>
 </html>
