@@ -131,6 +131,7 @@ form.addEventListener("submit", (event) => {
   for (let i = 0; i < form.elements.length; i++) {
     let element = form.elements[i];
     const errorElement = document.getElementById(`${element.name}-error`);
+    // Check if the element is a valid form element
     if (element.name && element.name !== "to") {
       if (element.value.trim() === "") {
         // Check if the field is empty
