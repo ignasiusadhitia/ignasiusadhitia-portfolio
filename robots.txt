@@ -1,0 +1,6 @@
+# Allowed
+User-agent: *
+Disallow:
+
+#Specify the location of the sitemap
+Sitemap: http://www.ignasiusadhitia.com/sitemap.xml
