@@ -17,6 +17,8 @@
 
     <!-- Page Content -->
     <div style="display: none" id="main-content">
+      <div id="toast-container"></div>
+
       <div class="container">
         <!-- Hero Section -->
         <header class="section-wrapper" id="hero-section">
@@ -115,15 +117,20 @@
             </div>
 
             <div class="contact-form-wrapper">
-              <form action="#" class="contact-form">
-                <input type="text" placeholder="Your Name" />
-                <input type="text" placeholder="Subject" required />
+              <form class="contact-form" id="contact-form">
+                <input type="text" placeholder="Your Name" name="name" />
+                <span class="error-message" id="name-error">Error</span>
+                <input type="text" placeholder="Subject" name="subject" />
+                <span class="error-message" id="subject-error"></span>
                 <textarea
                   placeholder="Your Message"
+                  name="text"
                   rows="4"
-                  required
                 ></textarea>
-                <button type="submit" class="button">Send Message</button>
+                <span class="error-message" id="text-error"></span>
+                <button type="submit" class="button" id="submit-button">
+                  Send Message
+                </button>
               </form>
               <p class="text-white">
                 I look forward to hearing from you. I’ll respond to your message

@@ -81,41 +81,106 @@ fetch("data.json")
   .then((response) => response.json())
   .then((data) => displayItems(data));
 
-const formData = {
-  to: "ignasius.yuda.adhitia@gmail.com",
-  name: "ignasiushhhh",
-  subject: "testingdddddd",
-  message: "testingddddd",
-};
+// Toast
+function showToast(message, type) {
+  const toast = document.createElement("div");
+  toast.classList.add("toast");
 
-// fetch("https://lumoshive-academy-email-api.vercel.app/send-email", {
-//   method: "post",
-//   mode: "no-cors",
-//   headers: {
-//     "Content-Type": "application/json",
-//     "x-api-key": "RJS1-202410",
-//   },
-//   body: JSON.stringify(formData),
-// })
-//   .then((response) => response.json())
-//   .then((data) => console.log(data))
-//   .catch((error) => console.error(error));
+  // Add success or error type based on the input
+  if (type === "success") {
+    toast.classList.add("toast-success");
+  } else {
+    toast.classList.add("toast-error");
+  }
 
-fetch("https://lumoshive-academy-email-api.vercel.app/send-email", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    "x-api-key": "RJS1-202410", // Add your API key here
-  },
-  body: JSON.stringify({
-    // Your request payload goes here
-    // Example:
+  toast.textContent = message;
+
+  document.getElementById("toast-container").appendChild(toast);
+
+  // Remove the toast after 3 seconds
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
+}
+
+// Send Email
+const form = document.getElementById("contact-form");
+const url = "https://lumoshive-academy-email-api.vercel.app/send-email";
+const key = "RJS1-202410";
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); // Prevent the default form submission behavior
+
+  const submitButton = document.getElementById("submit-button");
+  submitButton.disabled = true;
+
+  const formData = {
     to: "ignasius.yuda.adhitia@gmail.com",
-    name: "nama pengirim",
-    subject: "subject pengirim",
-    text: "pesan dari pengirim",
-  }),
-})
-  .then((response) => response.json())
-  .then((data) => console.log("Success:", data))
-  .catch((error) => console.error("Error:", error));
+  };
+
+  let isValid = true; // Flag to track validation status
+
+  // Clear previous error messages
+  const errorElements = form.querySelectorAll(".error-message");
+  errorElements.forEach((errorElement) => {
+    errorElement.textContent = "";
+    errorElement.style.display = "none";
+  });
+
+  // Loop through the form elements and extract their values
+  for (let i = 0; i < form.elements.length; i++) {
+    let element = form.elements[i];
+    const errorElement = document.getElementById(`${element.name}-error`);
+    if (element.name && element.name !== "to") {
+      if (element.value.trim() === "") {
+        // Check if the field is empty
+        isValid = false;
+        if (element.name === "text") {
+          errorElement.textContent = "Message is required!";
+        } else {
+          errorElement.textContent = `${
+            // Capitalize the first letter of the field name
+            element.name.charAt(0).toUpperCase() + element.name.slice(1)
+          } is required!`;
+        }
+
+        errorElement.style.display = "block";
+        element.classList.add("error");
+      } else {
+        formData[element.name] = element.value;
+        element.classList.remove("error");
+      }
+    }
+  }
+
+  // If any field is invalid, prevent form submission
+  if (!isValid) {
+    submitButton.disabled = false;
+    return;
+  }
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "x-api-key": key,
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Success:", data);
+      showToast("Your message has been sent successfully!", "success");
+      form.reset(); //clear form fields
+      form.querySelectorAll(".error").forEach((element) => {
+        element.classList.remove("error");
+      });
+      submitButton.disabled = false;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      showToast("Something went wrong. Please try again later.", "error");
+      submitButton.disabled = false;
+    });
+});
