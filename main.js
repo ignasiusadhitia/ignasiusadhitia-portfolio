@@ -168,19 +168,40 @@ form.addEventListener("submit", (event) => {
     },
     body: JSON.stringify(formData),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        // Handle non-200 responses
+        return response.json().then((data) => {
+          let errorMessage = data.message || "An error occurred";
+
+          // Handle specific status codes
+          if (response.status === 401) {
+            errorMessage = "Unauthorized access, invalid API key";
+          }
+
+          showToast(errorMessage, "error"); // Show error toast once
+          throw new Error(errorMessage); // Stop further execution
+        });
+      }
+      return response.json(); // If successful, parse JSON
+    })
     .then((data) => {
-      console.log("Success:", data);
-      showToast("Your message has been sent successfully!", "success");
-      form.reset(); //clear form fields
+      console.log("Success:", data.message);
+      showToast(data.message, "success"); // Show success toast
+      form.reset(); // Clear form fields
+
+      // Remove error classes on input fields
       form.querySelectorAll(".error").forEach((element) => {
         element.classList.remove("error");
       });
-      submitButton.disabled = false;
+      submitButton.disabled = false; // Re-enable the submit button
     })
     .catch((error) => {
-      console.error("Error:", error);
-      showToast("Something went wrong. Please try again later.", "error");
-      submitButton.disabled = false;
+      // Catch block handles fetch errors or network issues
+      if (error.message !== "Unauthorized access, invalid API key") {
+        console.error("Error:", error);
+        showToast(error.message || "Network error, please try again", "error"); // Show error toast once
+      }
+      submitButton.disabled = false; // Re-enable the submit button
     });
 });
