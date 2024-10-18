@@ -80,3 +80,42 @@ function displayItems(data) {
 fetch("data.json")
   .then((response) => response.json())
   .then((data) => displayItems(data));
+
+const formData = {
+  to: "ignasius.yuda.adhitia@gmail.com",
+  name: "ignasiushhhh",
+  subject: "testingdddddd",
+  message: "testingddddd",
+};
+
+// fetch("https://lumoshive-academy-email-api.vercel.app/send-email", {
+//   method: "post",
+//   mode: "no-cors",
+//   headers: {
+//     "Content-Type": "application/json",
+//     "x-api-key": "RJS1-202410",
+//   },
+//   body: JSON.stringify(formData),
+// })
+//   .then((response) => response.json())
+//   .then((data) => console.log(data))
+//   .catch((error) => console.error(error));
+
+fetch("https://lumoshive-academy-email-api.vercel.app/send-email", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "x-api-key": "RJS1-202410", // Add your API key here
+  },
+  body: JSON.stringify({
+    // Your request payload goes here
+    // Example:
+    to: "ignasius.yuda.adhitia@gmail.com",
+    name: "nama pengirim",
+    subject: "subject pengirim",
+    text: "pesan dari pengirim",
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log("Success:", data))
+  .catch((error) => console.error("Error:", error));
