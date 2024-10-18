@@ -37,7 +37,8 @@ function displayItems(data) {
     <div class="project-card-body">
         <h4>${project.title}</h4>
         <p>
-          ${project.desc.substring(0, 90)}...
+          ${project.desc.substring(0, 84)}...
+          <a href="${project.demoUrl}">Read More</a>          
         </p>
         <div class="project-card-footer">
           <a href="${project.demoUrl}">Demo</a>
