@@ -186,7 +186,6 @@ form.addEventListener("submit", (event) => {
       return response.json(); // If successful, parse JSON
     })
     .then((data) => {
-      console.log("Success:", data.message);
       showToast(data.message, "success"); // Show success toast
       form.reset(); // Clear form fields
 
@@ -199,7 +198,6 @@ form.addEventListener("submit", (event) => {
     .catch((error) => {
       // Catch block handles fetch errors or network issues
       if (error.message !== "Unauthorized access, invalid API key") {
-        console.error("Error:", error);
         showToast(error.message || "Network error, please try again", "error"); // Show error toast once
       }
       submitButton.disabled = false; // Re-enable the submit button
