@@ -1,4 +1,15 @@
-// Current Year
+// Loading Screen
+const loadingScreen = document.getElementById("loading-screen");
+const mainContent = document.getElementById("main-content");
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    loadingScreen.style.display = "none";
+    mainContent.style.display = "block";
+  }, 2000);
+});
+
+// Display Current Year
 const yearText = document.getElementById("year");
 const date = new Date();
 let year = date.getFullYear();
