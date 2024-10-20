@@ -45,20 +45,38 @@
       name="twitter:image"
       content="https://ignasiusadhitia.com/assets/images/profile-image.png"
     />
+
+    <!-- Json-LD Tags -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ignasius Yuda Adhitia",
+        "jobTitle": "Frontend Developer",
+        "url": "https://ignasiusadhitia.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/ignasiusadhitia/",
+          "https://github.com/ignasiusadhitia",
+          "https://twitter.com/ignasiusadhitia",
+          "https://www.instagram.com/ignasiusadhitia/"
+        ],
+        "image": "https://ignasiusadhitia.com/assets/images/profile-image.png",
+        "description": "Ignasius Yuda Adhitia is a frontend developer with expertise in building scalable and maintainable web applications using modern frameworks such as React.js and Vue.js. He is passionate about creating intuitive and user-friendly interfaces that provide seamless experiences for users."
+        "worksFor":{
+          "@type": "Organization",
+          "name": "Ignasius Yuda Adhitia",
+          "url": "https://ignasiusadhitia.com"
+        }
+      }
+    </script>
+
     <title>Ignasius Yuda Adhitia - Frontend Developer</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Loading Screen -->
-    <div class="dot-loader" id="loading-screen">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
     <!-- Page Content -->
-    <div style="display: none" id="main-content">
+    <div id="main-content">
       <div id="toast-container"></div>
 
       <div class="container">
@@ -237,28 +255,6 @@
       </nav>
     </div>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Ignasius Yuda Adhitia",
-        "jobTitle": "Frontend Developer",
-        "url": "https://ignasiusadhitia.com",
-        "sameAs": [
-          "https://www.linkedin.com/in/ignasiusadhitia/",
-          "https://github.com/ignasiusadhitia",
-          "https://twitter.com/ignasiusadhitia",
-          "https://www.instagram.com/ignasiusadhitia/"
-        ],
-        "image": "https://ignasiusadhitia.com/assets/images/profile-image.png",
-        "description": "Ignasius Yuda Adhitia is a frontend developer with expertise in building scalable and maintainable web applications using modern frameworks such as React.js and Vue.js. He is passionate about creating intuitive and user-friendly interfaces that provide seamless experiences for users."
-        "worksFor":{
-          "@type": "Organization",
-          "name": "Ignasius Yuda Adhitia",
-          "url": "https://ignasiusadhitia.com"
-        }
-      }
-    </script>
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
