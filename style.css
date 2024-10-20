@@ -308,8 +308,12 @@ nav {
 .contact-info {
   margin-top: 24px;
   display: flex;
-  gap: 16px;
-  font-size: 0.7rem;
+  gap: 24px;
+  font-size: 1.5rem;
+}
+
+.contact-info a:hover {
+  color: var(--bg-gray);
 }
 
 .contact-form-wrapper {
